@@ -1,0 +1,46 @@
+# Project: paragraph
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o words.o subject.o object.o verbs.o sentences.o paragraph.o
+LINKOBJ  = main.o words.o subject.o object.o verbs.o sentences.o paragraph.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -L"C:/msys64/mingw64/lib" -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = paragraph.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+words.o: words.cpp
+	$(CPP) -c words.cpp -o words.o $(CXXFLAGS)
+
+subject.o: subject.cpp
+	$(CPP) -c subject.cpp -o subject.o $(CXXFLAGS)
+
+object.o: object.cpp
+	$(CPP) -c object.cpp -o object.o $(CXXFLAGS)
+
+verbs.o: verbs.cpp
+	$(CPP) -c verbs.cpp -o verbs.o $(CXXFLAGS)
+
+sentences.o: sentences.cpp
+	$(CPP) -c sentences.cpp -o sentences.o $(CXXFLAGS)
+
+paragraph.o: paragraph.cpp
+	$(CPP) -c paragraph.cpp -o paragraph.o $(CXXFLAGS)
